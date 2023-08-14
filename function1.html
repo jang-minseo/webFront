@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자바스크립트 함수</title>
-    <script src="">
-        alert("안녕하세요");
+    <script>
+        function hello(na) {
+            alert(na + "안녕하세요");
+        }
+
+        function addNum(a, b) {
+            alert("두 수의 합은 = " + (a+b))
+        }
     </script>
 </head>
 <body>
-    <h1>자바스크립트</h1>
+    <h1 onclick="hello('홍길동님 ')">자바스크립트</h1>
+    <button onclick="addNum(20,30)">더하기</button>
 </body>
 </html>
