@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체</title>
+    <script>
+        let student =  {}
+        student.이름 = '홍길동';
+        student.취미 = '악기';
+        student.특기 = '프로그래밍';
+        student.장래희망 = '풀스택개발자';
+
+        student.toString = function () {
+            let output = "";
+            for (let key in this) {
+                if (key != 'toString') {
+                    output += key + " : " + this[key] + "<br>";
+                }
+                
+            }
+            return output;
+        };
+
+        document.write(student.toString());
+        delete(student.장래희망);
+        document.write("========================<Vbr>")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

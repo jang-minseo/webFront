@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체</title>
+    <script>
+        let student = {
+            name : '장민서',
+            kor : 95,
+            eng : 70,
+            mat : 75,
+            sci : 75
+        };
+
+        with(student) {
+            document.write("<h2>** 장민서의 성적표 **</h2>");
+            
+            document.write("국어 : " + kor + "<br>"); 
+            document.write("영어 : " + eng + "<br>"); 
+            document.write("과학 : " + sci + "<br>"); 
+            document.write("수학 : " + mat + "<br>"); 
+            let sum = kor + eng + sci + mat;
+            let avg = sum/4;
+
+            document.write("총점 : " + sum + "<br>"); 
+            document.write("평균 : " + avg + "<br>"); 
+        }
+
+        /* document.write("<h2>** 장민서의 성적표 **</h2>");
+        
+        document.write("국어 : " + student.kor + "<br>"); 
+        document.write("영어 : " + student.eng + "<br>"); 
+        document.write("과학 : " + student.sci + "<br>"); 
+        document.write("수학 : " + student.mat + "<br>"); 
+        let sum = student.kor + student.eng + student.sci + student.mat;
+        let avg = sum/4;
+
+        document.write("총점 : " + sum + "<br>"); 
+        document.write("평균 : " + avg + "<br>");  */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

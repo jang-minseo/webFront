@@ -32,17 +32,32 @@
             text-align: justify;
             line-height: 1.8;
         }
+
     </style>
     <script>
         window.onload = function () {
             let desc = document.querySelector("#desc");
             let op = document.querySelector("#op");
-            
+            let sp = document.querySelector("#shepherd");
+
             op.onclick = function() {
                 desc.style.display = "block";
                 op.style.display = "none";
             }
+
+            sp.onmouseover = function () {
+                sp.style.border = "none";
+            }
+
+            sp.onmouseout = function () {
+                sp.style.border = "3px solid red";
+            }
         }
+
+        /* function showDetail() {
+            desc.style.display = "none";
+            op.style.display = "block";
+        } */
 
         function hideDetail() {
             desc.style.display = "none";
@@ -53,7 +68,7 @@
 <body>
     <div id="pet">
         <img src="/images/shepherd.jpg" alt="셰퍼드" id="shepherd">
-        <button class="over" id="op">상세설명보기</button>
+        <button class="over" id="op" onclick="showDetail()">상세설명보기</button>
         <div id="desc" class="detail">
             <h3>Shepherd</h3>
             <p>세계에서 가장 많은곳에서 키우는 개. 목장견, 보초견, 

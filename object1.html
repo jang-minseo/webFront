@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체</title>
+    <script>
+        let fruits = ["참외", "수박", "사과", "바나나", "포도"];
+        let product = {
+            제품명 : '건조 망고',
+            유형 : '당절임',
+            가격 : 5000,
+            원산지 : '필리핀'
+        };
+        // alert(product.제품명);
+        // alert(product['제품명']);
+        
+        document.write("<h2>**여름철 과일**</h2>");
+        /* for(let i=0;fruits.length;i++) {
+            document.write(fruits[i] + "<br>");
+        } */
+
+        for(let i in fruits) {
+            document.write(fruits[i] + "<br>");
+        }
+        
+        for(let key in product) {
+            document.write("■ " + key + " → " + product[key] + "<br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
