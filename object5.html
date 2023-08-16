@@ -4,15 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자바스크립트 객체</title>
+    <style>
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+        
+        table tr:first-child {
+            background-color: antiquewhite;
+        }
+
+        table td {
+            text-align: center;
+        }
+    </style>
     <script>
         let students = [
-            {name : '홍길동', kor : 90, mat : 85},
-            {name : '김철수', kor : 90, mat : 85},
-            {name : '박찬호', kor : 90, mat : 85},
-            {name : '강호동', kor : 90, mat : 85},
-            {name : '이영희', kor : 90, mat : 85}
-        ]
-        document.write(students[0].name);
+            {name : '홍길동', kor : 90, mat : 85, eng : 100},
+            {name : '김철수', kor : 95, mat : 80, eng : 54},
+            {name : '박찬호', kor : 12, mat : 72, eng : 51},
+            {name : '강호동', kor : 100, mat : 66, eng : 88},
+            {name : '이영희', kor : 97, mat : 84, eng : 70}
+        ];
+
+        for(let i in students) {
+            students[i].getSum = function () {
+                return this.kor + this.mat + this.eng;
+            }
+            students[i].getAvg = function () {
+                return this.getSum() / 3;
+            }
+        }    
+
+        document.write("<h2>3학년 1반 성적표</h2>")
+        document.write("<table border='1'>");
+        document.write("<tr><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총점</th><th>평균</th></tr>");
+        for(let i in students) {
+            with(students[i]) {
+                document.write( "<tr><td>" + name + "</td><td>" + kor + 
+                                "</td><td>" + eng + "</td><td>" + mat + 
+                                "</td><td>" + getSum() + "</td><td>" + 
+                                Math.round(getAvg()) + "</td></tr>");
+            }
+            
+        }
+
+        document.write("</table>");
     </script>
 </head>
 <body>
