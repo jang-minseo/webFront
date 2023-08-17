@@ -11,20 +11,19 @@
             this.mat = mat;
             this.eng = eng;
             this.sci = sci;
-            
-            this.getSum = function () {
+        }        
+            // 프로토타입 : 생성자 함수로 생성된 객체가 공통으로 갖는 공간
+            Student.prototype.getSum = function () {
                 return this.kor+this.mat+this.eng+this.sci;
             }
 
-            this.getAvg = function () {
+            Student.prototype.getAvg = function () {
                 return this.getSum() / 4;
             }
 
-            this.toString = function () {
+            Student.prototype.toString = function () {
                 return this.name + " " + this.getSum() + " " + this.getAvg();
             }
-
-        }
 
         let students = [];
         students.push(new Student('홍길동',95,45,46,18));
