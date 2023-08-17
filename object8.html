@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체</title>
+    <script>
+        function Book(title, pages, price, author) {
+            this.title = title;
+            this.pages = pages;
+            this.price = price;
+            this. author = author;
+        }
+
+        
+        let html = new Book('웹표준의 정석',300,20000,'김철수');
+        let youtube = new Book('유튜브 영상 만들기',300,20000,'김철수');
+        let python = new Book('파이썬의 기본',300,20000,'김철수');
+        let booklist = [html,youtube,python];
+
+        document.write("<h2>신간 도서 목록</h2>")
+        for(let i=0; i<booklist.length; i++) {
+            document.write("<p>책 제목 : " + booklist[i].title + "</p>");
+            document.write("<p>가격 : " + booklist[i].price + "</p>");
+            document.write("<p>저자 : " + booklist[i].author + "</p>");
+            document.write("====================");
+        }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

@@ -84,20 +84,51 @@
         let now = new Date();
         let errString;
         let check = false;
+        let toFirst, passedDay;
         let day = prompt("연인을 처음 만난 날을 정확히 입력해주세요", 'YYYY-MM-DD');
         if(day != null) {
             check=true;
         } else {
             errString="취소를 선택하셔서 날짜를 계산할 수 없습니다."
         }
+
+        if(check) {
+            let firstDay = new Date(day);
+            if(!isNaN(firstDay)) {
+                let toNow = now.getTime();
+                toFirst = firstDay.getTime();
+                let passedTime = toNow-toFirst;
+                passedDay = Math.round(passedTime/(24*60*60*1000));
+            } else {
+                check = false;
+                errString = "문자나 잘못된 날짜 정보로는 기념일을 계산할 수 없습니다."
+            }
+        } 
+
+        // 계산된 기념일을 문서에 출력
         window.onload = function () {
             if(check) {
-
+                document.querySelector("#title").innerHTML += "(" + day + ")";
+                document.querySelector("#count").innerHTML = passedDay+"일";
+                calcDate(100);
+                calcDate(200);
+                calcDate(365);
+                calcDate(1000);
             } else {
                 alert(errString);
+                document.querySelector("#count").innerHTML = ("알수없음");
             }
         }
 
+        // 기념일을 계산하는 함수 
+        function calcDate(days) {
+            let future = toFirst+days*(24*60*60*100);
+            let someday = new Date(future);
+            let year = someday.getFullYear();
+            let month = someday.getMonth()+1;
+            let date = someday.getDate();
+            document.querySelector("#date" + days).innerHTML = year + "년 " + month + "월 " + date + "일";    
+        }
     </script>
 </head>
 <body>
