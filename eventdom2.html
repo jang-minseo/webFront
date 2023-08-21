@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트로 DOM 처리</title>
+    <style>
+       #rect {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin-left: 100px;
+        transition: 1s;
+       }
+    </style>
+    <script>
+        let pic;
+        window.onload = function () {
+            pic = document.querySelector("#pic");
+            let myRect = document.querySelector("#rect");
+            pic.addEventListener("mouseover", changePic);
+            pic.addEventListener("mouseout", originPic);
+            myRect.addEventListener("mouseover", function () {
+                this.style.backgroundColor = "green";
+                this.style.borderRadius = "50%";
+            });
+            myRect.addEventListener("mouseout", function () {
+                this.style.backgroundColor = "";
+                this.style.borderRadius = "";
+            });
+        }
+        function changePic() {
+            pic.src = "images/boy.png";
+        }
+        function originPic() {
+            pic.src = "images/girl.png";
+        }
+    </script>
+</head>
+<body>
+    <img src="images/girl.png" alt="소녀" id="pic">
+    <div id="rect"></div>
+</body>
+</html>

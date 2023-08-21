@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트로 DOM 처리</title>
+    <style>
+       
+    </style>
+    <script>
+        window.onload = function () {
+            let btn1 = document.getElementById("button1");
+            let btn2 = document.getElementById("button2");
+            let cnt1 = document.getElementById("count1");
+            let cnt2 = document.getElementById("count2");
+
+            btn1.onclick = function () {
+                cnt1.innerHTML = Number(cnt1.innerHTML) + 1;
+            }
+            btn2.onclick = function () {
+                cnt2.innerHTML = Number(cnt2.innerHTML) + 1;
+                btn1.onclick();
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <button id="button1">김철수 투표</button>
+    <button id="button2">홍길동 투표</button>
+    <h1>김철수 -- <span id="count1">0</span></h1>
+    <h1>홍길동 -- <span id="count2">0</span></h1>
+</body>
+</html>

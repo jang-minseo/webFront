@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트로 DOM 처리</title>
+    <style>
+        #header {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        let pic;
+        window.onload = function () {
+            let head = document.querySelector("#header");
+            pic = document.querySelector("#pic");
+
+            head.onclick = function () {
+                this.innerHTML = "오늘은 DOM을 이벤트로 활용하는 기술을 배웁니다.";
+            }
+            pic.onclick=changePic;
+            document.getElementById("header2").onclick = function () {
+                this.style.color="red";
+                this.style.backgroundColor = "yellow";
+            }
+        }
+        
+        function changePic() {
+            pic.src = "images/boy.png";
+        }
+        
+    </script>
+</head>
+<body>
+    <h1 id="header" title="클릭하세요">나를 클릭해보세요</h1>
+    <img src="images/girl.png" alt="소녀" id="pic">
+    <h2 id="header2">나는 스타일이 변경됨</h2>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실무 이벤트 DOM 제어</title>
+    <style>
+        #container {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        #prod_pic, #desc {
+            float: left;
+        }
+
+        #prod_pic {
+            margin: 20px 20px auto 10px;
+        }
+
+        #prod_pic > img {
+            width: 200px;
+            height: 200px;
+            box-shadow: 1px 1px 2px #eee;
+            outline: 1px dashed #ccc;
+            outline-offset: -7px;
+        }
+
+        #small_pic {
+            margin-top: 20px;
+        }
+        
+        #small_pic > img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        #desc {
+            width: 300px;
+            padding-top: 20px;
+            margin-bottom: 50px;
+        }
+        
+        #desc .bluetext {
+            color: #3971e1;
+        }
+        
+        #desc ul {
+            list-style: none;
+        }
+
+        #desc li {
+            font-style: 0.5em;
+            line-height: 1.8;
+        }
+
+        #desc button {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #desc a {
+            text-decoration: none;
+            font-size: 0.9em;
+            color: blue;
+            padding: 40px;
+        }
+
+        #detail {
+            clear: both;
+            display: none;
+        }
+
+    </style>
+
+    <script>
+        window.onload = function () {
+            let bigPic = document.querySelector("#prod_pic > img");
+            let smallPic = document.querySelectorAll("#small_pic > img");
+            let view = document.querySelector("#view");
+            let detail = document.querySelector("#detail");
+            let isOpen = false;
+
+            for(let i=0;i<smallPic.length;i++) {
+                smallPic[i].onclick = function () {
+                    bigPic.src = this.src;
+                };
+            }
+
+            view.onclick = function () {
+                isOpen = !isOpen;
+                if(isOpen == true) {
+                    detail.style.display = "block";
+                    this.innerText="접기";
+                } else {
+                    detail.style.display = "none";
+                    this.innerText="상세 설명 보기";
+                }
+        }
+
+            
+    }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1 id="heading">에티오피아 게뎁</h1>
+        <div id="prod_pic">
+            <img src="images/coffee-pink.jpg" alt="">
+            <div id="small_pic">
+                <img src="images/coffee-pink.jpg" alt="">
+                <img src="images/coffee-gray.jpg" alt="">
+                <img src="images/coffee-blue.jpg" alt="">
+            </div>
+        </div>
+        <div id="desc">
+            <ul>
+                <li>상품명 : 에티오피아 게뎁</li>
+                <li class="bluetext">판매가 : 9,000원</li>
+                <li>배송비 : 3,000원 (50,000원 이상 구매시 무료)</li>
+                <li>적립금 : 100(2%)</li>
+                <li>로스팅 : 2023-08-20</li>
+                <button>장바구니 담기</button>
+            </ul>
+            <a href="#" id="view">상세 설명 보기</a>
+        </div>
+        <div id="detail">
+            <hr>
+            <h2>상품 상세 정보</h2>
+            <ul>
+                <li>원산지 : 에티오피아</li>
+                <li>지역 : 에르가메프 코베라</li>
+                <li>농장 : 케냐</li>
+                <li>고도 : </li>
+                <li>품종 : 지역 토지품</li>
+                <li>가공법 : </li>
+            </ul>
+            <h2>Information</h2>
+            <p>2차 세계대전 이후 설립된 </p>
+            <h3>Flavor Note</h3>
+            <p>은은하고 다채로운 꽃향, </p>
+        </div>
+    </div>
+</body>
+</html>
