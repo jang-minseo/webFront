@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 DOM 제어</title>
+    
+    <script>
+        window.onload = function () {
+            let select = document.querySelector("#class");
+            
+            select.addEventListener("change", function () {
+                let txt = this.options[this.selectedIndex].innerText;
+                alert("[" + txt + "] 를 선택하셨습니다.");
+            });
+        }
+    </script>
+</head>
+<body>
+    <form name="testForm">
+        <p>
+            <select name="class" id="class">
+                <option value="1">건축공학과</option>
+                <option value="2">기계공학과</option>
+                <option value="3">산업공학과</option>
+                <option value="4">전기공학과</option>
+                <option value="5">컴퓨터공학과</option>
+            </select>
+        </p>
+    </form>
+</body>
+</html>

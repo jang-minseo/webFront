@@ -5,14 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이벤트 DOM 제어</title>
     <style>
-        h1 {
-            cursor: pointer;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-       
-        
+
+        ul {
+            list-style: none;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        form {
+            width: 530px;
+            height: auto;
+            padding-left: 10px;
+            margin: 50px auto;
+        }
+
+        fieldset {
+            border: 1px solid #c0c0c0;
+            padding: 30px 20px 30px 20px;
+            margin-bottom: 35px;
+        }
+
+        .field {
+            float: left;
+            width: 70px;
+            font-weight: bold;
+            font-size: 0.9em;
+            line-height: 55px;
+            text-align: center;
+            margin-right: 15px;
+        }   
+
+        .input-box {
+            width: 350px;
+            height: 35px;
+            float: left;
+            border: 1px solid #aaaa;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px 0;
+        }
     </style>
     <script>
+        window.onload = function () {
+            let check = document.querySelector("#shippingInfo");
+            
+            check.addEventListener("click", function () {
+                if(this.checked == true) {
+                    // document.querySelector("#shippingName").value = document.querySelector("#personName").value;
+                    // document.querySelector("#shippingTel").value = document.querySelector("#personTel").value;
+                    // document.querySelector("#shippingAdd").value = document.querySelector("#personAdd").value;
+                    document.ship.shippingName.value = document.order.personName.value;
+                    document.ship.shippingTel.value = document.order.personTel.value;
+                    document.ship.shippingAdd.value = document.order.personAdd.value;
+                } else {
+                    // document.querySelector("#shippingName").value = "";
+                    // document.querySelector("#shippingTel").value = "";
+                    // document.querySelector("#shippingAdd").value = "";
+                    document.ship.shippingName.value = "";
+                    document.ship.shippingTel.value = "";
+                    document.ship.shippingAdd.value = "";
+                }  
+            });
 
+
+
+        }
     </script>
 </head>
 <body>
@@ -26,12 +92,35 @@
                         <input type="text" class="input-box" id="personName" name="personName">
                     </li>
                     <li>
-                        <label for="personTell" class="field">전화번호</label>
-                        <input type="tel" class="input-box" id="personTell" name="personTell">
+                        <label for="personTel" class="field">전화번호</label>
+                        <input type="tel" class="input-box" id="personTel" name="personTel">
                     </li>
                     <li>
                         <label for="personAdd" class="field">주소</label>
                         <input type="text" class="input-box" id="personAdd" name="personAdd">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+        <form name="ship">
+            <fieldset>
+                <legend>배송정보</legend>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="shippingInfo" id="shippingInfo">
+                        <label for="shippingInfo" class="check">주문정보와 배송정보가 같습니다.</label>
+                    </li>
+                    <li>
+                        <label for="shippingName" class="field">이름</label>
+                        <input type="text" class="input-box" id="shippingName" name="shippingName">
+                    </li>
+                    <li>
+                        <label for="shippingTel" class="field">전화번호</label>
+                        <input type="tel" class="input-box" id="shippingTel" name="shippingTel">
+                    </li>
+                    <li>
+                        <label for="shippingAdd" class="field">주소</label>
+                        <input type="text" class="input-box" id="shippingAdd" name="shippingAdd">
                     </li>
                 </ul>
             </fieldset>
