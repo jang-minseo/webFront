@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 DOM 제어</title>
+    <style>
+        h1 {
+            cursor: pointer;
+        }
+       
+        
+    </style>
+    <script>
+        window.onload = function () {
+            /* let head = document.getElementById("head");
+
+            head.addEventListener("click", hello);
+            
+            function hello() {
+                alert("안녕하세요!");
+                this.style.color = "#ccc";
+                this.style.cursor = "default";
+                this.removeEventListener("click" , hello);
+            } */
+            let head = document.getElementById("head");
+            let na = 3;
+
+            head.addEventListener("click", buy);
+
+            function buy() {
+                na--;
+                alert("구입해주셔서 감사합니다. 남은수량 " + na +"개");
+
+            
+                if(na == 0) {
+                    alert("품절입니다.");
+                    this.style.color = "#ccc";
+                    this.style.cursor = "default";
+                    this.innerHTML = "품절";
+                    this.removeEventListener("click" , buy);
+                } 
+            }
+            
+
+
+        }
+    </script>
+</head>
+<body>
+    <!-- <h1 id="head">인사하기</h1> -->
+    <h1 id="head">제품 구입</h1>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 DOM 제어</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            line-height: 1.8;
+            font-size: 1.5em;
+        }
+
+        .ch {
+            color: #ccc;
+            font-size: 1.5em;
+            margin-right: 25px;
+            cursor: pointer;
+        }
+
+        .ch:hover {
+            color: #222;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let check = document.querySelectorAll(".ch");
+            let list = document.querySelectorAll("ul>li");
+            
+            for(let i=0;i<check.length;i++) {
+                check[i].onclick = function () {
+                    alert("임무완료!");
+                    this.style.color = "#ccc";
+                    this.style.cursor = "default";
+                    list[i].style.color = "#ccc";
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <ul>
+        <li><span class="ch">&check;</span> 집 청소하기</li>
+        <li><span class="ch">&check;</span> 웹페이지 제작</li>
+        <li><span class="ch">&check;</span> 운동하기</li>
+        <li><span class="ch">&check;</span> 자바스크립트 복습</li>
+        <li><span class="ch">&check;</span> 밀린 빨래하기</li>
+    </ul>
+</body>
+</html>
