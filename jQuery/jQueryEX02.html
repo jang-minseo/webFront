@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function () {
+            $('*').css('color', 'black');
+            $('p').css('background-color', 'yellow');
+            $('.item').css('color', 'red');
+            $('.select').css('background', 'yellow');
+            $('.item.select').css('color', 'blue');
+        })
+    </script>
+</head>
+<body>
+    <h1>제이쿼리 시작</h1>
+    <p class="item select">자바스크립트로 만들어진 라이브러리</p>
+    <ul>
+        <li>선택자</li>
+        <li>매서드</li>
+        <li class="item">이벤트</li>
+        <li class="select">애니메이션</li>
+        <li>응용기술</li>
+        <li>Ajax</li>
+    </ul>
+    <p id="target">프론트앤드 페이지 제작</p>
+    <p>html, css, javascript</p>
+</body>
+</html>
