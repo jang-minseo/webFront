@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function() {
+            let co = ['red','blue','green'];
+            /* for(let i=0;i<co.length;i++) {
+                $('h1').eq(i).css('color', co[i]);
+            } */
+            $('h1').css({
+                color : function (index) {
+                    return co[index];
+                },
+                backgroundColor : 'yellow',
+                border : function(index) {
+                    return '2px solid ' + co[2-index];
+                } 
+            })
+            setTimeout(function()  {
+                $
+            }, timeout);
+        })
+    </script>
+</head>
+<body>
+    <h1>제이쿼리 선택자</h1>
+    <h1>제이쿼리 메소드</h1>
+    <h1>제이쿼리 쉽게 제어</h1>
+</body>
+</html>

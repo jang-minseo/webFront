@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #carColor {
+            width: 375px;
+            text-align: center;
+        }
+        #carColor > p {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #carColor > p:nth-child(1) {
+            background-color: greenyellow;
+            border: 3px solid black;
+        }
+        #carColor > p:nth-child(2) {
+            background-color: red;
+            border: 3px solid black;
+        }
+        #carColor > p:nth-child(3) {
+            background-color: purple;
+            border: 3px solid black;
+        }
+    </style>
+    <script>
+        $(function () {
+            let car_color = ['green', 'red', 'purple'];
+            let index;
+            $('#carColor > p').click(function() {
+                index = $(this).index();
+                $('.myCar').attr('src', './jQuerydoc/images/car_' + car_color[index] + '.jpg');
+                $('#carColor>p').css('border','none');
+                $(this).css('border','3px solid black');
+            })
+        })
+    </script>
+</head>
+<body>
+    <img src="./jQuerydoc/images/car_green.jpg" alt="" class="myCar">
+    <div id="carColor">
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+</html>
